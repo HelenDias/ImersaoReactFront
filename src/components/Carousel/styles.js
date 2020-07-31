@@ -11,7 +11,6 @@ export const Title = styled.h3`
   background: red;
   line-height: 1;
   border-radius: 4px;
-
   @media (max-width: 800px) {
     font-size: 18px;
     padding: 10px;
@@ -41,7 +40,7 @@ export const VideoCardList = styled.ul`
   display: flex;
   overflow-x: auto;
   flex-direction: row;
-  
+
   li {
     margin-right: 16px;
   }
