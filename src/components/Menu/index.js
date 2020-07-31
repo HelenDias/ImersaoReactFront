@@ -1,6 +1,9 @@
 import React from 'react';
-import Logo from '../../assets/img/Logo.png';
+
 import './Menu.css';
+
+import Logo from '../../assets/img/Logo.png';
+import ButtonLink from './components/ButtonLink';
 
 function Menu() {
   return(
@@ -12,6 +15,13 @@ function Menu() {
           class="Logo"
         />
       </a>
+
+      <ButtonLink
+        className="ButtonLink"
+        href="/"
+      >
+        Novo vídeo
+      </ButtonLink>
     </nav>
   )
 }
