@@ -1,12 +1,13 @@
 import React from 'react';
 
-import Header from '../../../components/Menu'
+import PageDefault from '../../../components/PageDefault'
 
 function RegisterVideo() {
   return (
     <>
-      <Header />
-      <p>Novo vídeo</p>
+      <PageDefault>
+        Página de cadastro de vídeos
+      </PageDefault>
     </>
   );
 }
