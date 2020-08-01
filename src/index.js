@@ -1,14 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Register from './pages/cadastro/Video';
+
+const Page404 = () => (<div>Página 404</div>)
 
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route path="/" component={App} />
+      <Route path="/" component={Home} exact />
+      <Route path="/cadastro/video" component={Register} />
+      <Route component={Page404} />
     </Switch>
   </BrowserRouter>,
   document.getElementById('root')
