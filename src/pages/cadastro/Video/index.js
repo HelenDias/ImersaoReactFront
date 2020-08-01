@@ -1,8 +1,13 @@
 import React from 'react';
 
+import Header from '../../../components/Menu'
+
 function RegisterVideo() {
   return (
-    <p>Novo vídeo</p>
+    <>
+      <Header />
+      <p>Novo vídeo</p>
+    </>
   );
 }
 
