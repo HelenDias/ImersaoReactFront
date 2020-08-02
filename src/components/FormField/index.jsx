@@ -42,7 +42,7 @@ const Input = styled.input`
 
   outline: 0;
   border: 0;
-  border-top: 4px solid transparent;
+  border-top: 10px solid transparent;
   border-bottom: 4px solid #53585D;
 
   padding: 16px;
@@ -56,7 +56,7 @@ const Input = styled.input`
     border-bottom-color: var(--primary);
   }
   &:focus:not([type='color']) + ${Label.Text} {
-    color: var(--primary);
+    color: var(--frontEnd);
     transform: scale(.6) translateY(-10px);
   }
   ${({ value }) => {
