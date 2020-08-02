@@ -55,7 +55,7 @@ function RegisterCategory() {
 
         <FormField
           label="Descrição:"
-          type="????"
+          type="textarea"
           name="description"
           value={values.description}
           onChange={handleChange}

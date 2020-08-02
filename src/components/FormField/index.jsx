@@ -1,17 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+const Input = styled.input`
+`;
 
 function FormField({
   label, type, name, value, onChange,
 }) {
   const fieldId = `id_${name}`;
+  const isTaxArea = type === 'textarea';
+  const tag = isTaxArea ? 'textarea' : 'input';
 
   return (
     <div>
       <label htmlFor={fieldId}>
         {label}
         :
-        <input
+        <Input
+          as={tag}
           type={type}
           value={value}
           name={name}
