@@ -8,39 +8,42 @@ function RegisterCategory() {
     name: '',
     description: '',
     cor: '',
-  }
+  };
   const [categories, setCategories] = useState([]);
   const [values, setValues] = useState(initialValues);
-
 
   function setValue(key, value) {
     setValues({
       ...values,
       [key]: value,
-    })
+    });
   }
 
   function handleChange(e) {
     setValue(
       e.target.getAttribute('name'),
-      e.target.value
+      e.target.value,
     );
   }
 
   return (
     <PageDefault>
-      <h1>Cadastro de Categoria: {values.name}</h1>
+      <h1>
+        Cadastro de Categoria:
+        {values.name}
+      </h1>
 
       <form onSubmit={function handleSubmit(e) {
-          e.preventDefault();
+        e.preventDefault();
 
-          setCategories([
-            ...categories,
-            values,
-          ]);
+        setCategories([
+          ...categories,
+          values,
+        ]);
 
-          setValues(initialValues)
-      }}>
+        setValues(initialValues);
+      }}
+      >
 
         <FormField
           label="Nome da Categoria"
@@ -66,27 +69,24 @@ function RegisterCategory() {
           onChange={handleChange}
         />
 
-        <button>
+        <button type="submit">
           Cadastrar
         </button>
       </form>
 
-
       <ul>
-        {categories.map((category, index) => {
-          return (
-            <li key={`${category}${index}`}>
-              {category.name}
-            </li>
-          )
-        })}
+        {categories.map((category, index) => (
+          <li key={`${category}${index}`}>
+            {category.name}
+          </li>
+        ))}
       </ul>
 
       <Link to="/">
         Ir para home
       </Link>
     </PageDefault>
-  )
+  );
 }
 
 export default RegisterCategory;

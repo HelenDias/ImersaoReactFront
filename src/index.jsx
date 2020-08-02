@@ -7,7 +7,7 @@ import Home from './pages/Home';
 import RegisterVideo from './pages/cadastro/Video';
 import RegisterCategory from './pages/cadastro/Categoria';
 
-const Page404 = () => (<div>Página 404</div>)
+const Page404 = () => (<div>Página 404</div>);
 
 ReactDOM.render(
   <BrowserRouter>
@@ -18,7 +18,7 @@ ReactDOM.render(
       <Route component={Page404} />
     </Switch>
   </BrowserRouter>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
 
 // If you want your app to work offline and load faster, you can change

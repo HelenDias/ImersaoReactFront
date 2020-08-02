@@ -1,10 +1,15 @@
-import React from "react";
+import React from 'react';
 
-function FormField({ label, type, name, value, onChange }) {
+function FormField({
+  label, type, name, value, onChange,
+}) {
+  const fieldId = `id_${name}`;
+
   return (
     <div>
-      <label>
-        {label}:
+      <label htmlFor={fieldId}>
+        {label}
+        :
         <input
           type={type}
           value={value}
@@ -13,7 +18,7 @@ function FormField({ label, type, name, value, onChange }) {
         />
       </label>
     </div>
-  )
+  );
 }
 
 export default FormField;
