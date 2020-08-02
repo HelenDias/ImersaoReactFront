@@ -3,21 +3,8 @@ import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 
-function RegisterCategory() {
-  const URL_DEV = 'http://localhost:8080/categories';
-  const URL_PROD = 'https://cubo-flix.herokuapp.com/categories';
-
-  const URL = window.location.href.includes('localhost')
-    ? URL_DEV
-    : URL_PROD;
-
-  const initialValues = {
-    name: '',
-    description: '',
-    color: '#000',
-    url: '',
-  };
-  const [categories, setCategories] = useState([]);
+// custom hook
+function useForm(initialValues) {
   const [values, setValues] = useState(initialValues);
 
   function setValue(key, value) {
@@ -33,6 +20,36 @@ function RegisterCategory() {
       e.target.value,
     );
   }
+
+  function clearForm() {
+    setValues(initialValues);
+  }
+
+  return {
+    handleChange,
+    clearForm,
+    values,
+  };
+}
+
+function RegisterCategory() {
+  const initialValues = {
+    name: '',
+    description: '',
+    color: '#000',
+    url: '',
+  };
+
+  const {
+    values,
+    clearForm,
+    handleChange,
+  } = useForm(initialValues);
+
+  const [
+    categories,
+    setCategories,
+  ] = useState([]);
 
   function saveCategory() {
     const data = {
@@ -56,7 +73,7 @@ function RegisterCategory() {
       values,
     ]);
 
-    setValues(initialValues);
+    clearForm(initialValues);
 
     saveCategory();
   }
@@ -66,6 +83,13 @@ function RegisterCategory() {
   // 2. quando eu quero que isso aconteça (é opcional).
   // Se passar um array vazio no 2º, vai acontecer apenas uma vez
   useEffect(() => {
+    const URL_DEV = 'http://localhost:8080/categories';
+    const URL_PROD = 'https://cubo-flix.herokuapp.com/categories';
+
+    const URL = window.location.href.includes('localhost')
+      ? URL_DEV
+      : URL_PROD;
+
     fetch(URL)
       .then(async (responseFromServer) => {
         const response = await responseFromServer.json();
