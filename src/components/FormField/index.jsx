@@ -7,7 +7,7 @@ const FormFieldWraper = styled.div`
   textarea {
     min-height: 150px;
   }
-  input[type="color"] {
+  input[type='color'] {
     padding-left: 56px;
   }
 `;
@@ -72,8 +72,8 @@ const Input = styled.input`
 function FormField({
   label, type, name, value, onChange,
 }) {
-  const isTaxArea = type === 'textarea';
-  const tag = isTaxArea ? 'textarea' : 'input';
+  const isTextArea = type === 'textarea';
+  const tag = isTextArea ? 'textarea' : 'input';
 
   return (
     <FormFieldWraper>

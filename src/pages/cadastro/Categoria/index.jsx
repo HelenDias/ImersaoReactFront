@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
@@ -25,6 +25,25 @@ function RegisterCategory() {
       e.target.value,
     );
   }
+
+  // useEffect recebe dois parâmetros, sendo eles:
+  // 1. o que eu quero que aconteça (função que faz algo)
+  // 2. quando eu quero que isso aconteça (é opcional).
+  // Se passar um array vazio no 2º, vai acontecer apenas uma vez
+  useEffect(() => {
+    if (window.location.href.includes('localhost')) {
+      const URL = 'http://localhost:8080/categories';
+      fetch(URL)
+        .then(async (responseFromServer) => {
+          if (responseFromServer.ok) {
+            const response = await responseFromServer.json();
+            setCategories(response);
+            return;
+          }
+          throw new Error('Não foi possível pegar os dados');
+        });
+    }
+  }, []);
 
   return (
     <PageDefault>
@@ -73,6 +92,12 @@ function RegisterCategory() {
           Cadastrar
         </button>
       </form>
+
+      { categories.length === 0 && (
+        <div>
+          Loading...
+        </div>
+      )}
 
       <ul>
         {categories.map((category, index) => (
