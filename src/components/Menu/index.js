@@ -13,7 +13,7 @@ function Menu() {
         <img
           alt="AluraFlix logo"
           src={Logo}
-          class="Logo"
+          className="Logo"
         />
       </Link>
 
