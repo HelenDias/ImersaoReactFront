@@ -54,7 +54,7 @@ function RegisterCategory() {
         />
 
         <FormField
-          label="Descrição:"
+          label="Descrição"
           type="textarea"
           name="description"
           value={values.description}
@@ -65,7 +65,7 @@ function RegisterCategory() {
           label="Cor"
           type="color"
           name="color"
-          value={values.cor}
+          value={values.color}
           onChange={handleChange}
         />
 
