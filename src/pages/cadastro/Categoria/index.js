@@ -9,8 +9,19 @@ function RegisterCategory() {
       <PageDefault>
         <h1>Cadastro de categoria</h1>
 
-        <Link to="/cadastro/video">
-          Cadastrar vídeo
+        <form>
+          <label>
+            Nome da categoria:
+            <input type="text" />
+          </label>
+
+          <button>
+            Cadastrar
+          </button>
+        </form>
+
+        <Link to="/">
+          Ir para home
         </Link>
       </PageDefault>
     </>
