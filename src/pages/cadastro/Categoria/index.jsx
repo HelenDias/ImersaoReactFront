@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import useForm from '../../../hooks/useForm';
+import URL from '../../../config';
 
 function RegisterCategory() {
   const initialValues = {
@@ -55,14 +56,7 @@ function RegisterCategory() {
   // 2. quando eu quero que isso aconteça (é opcional).
   // Se passar um array vazio no 2º, vai acontecer apenas uma vez
   useEffect(() => {
-    const URL_DEV = 'http://localhost:8080/categories';
-    const URL_PROD = 'https://cubo-flix.herokuapp.com/categories';
-
-    const URL = window.location.href.includes('localhost')
-      ? URL_DEV
-      : URL_PROD;
-
-    fetch(URL)
+    fetch(`${URL}/categories`)
       .then(async (responseFromServer) => {
         const response = await responseFromServer.json();
         setCategories([

@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import dadosIniciais from '../../data/dados_iniciais.json';
 import Menu from '../../components/Menu';
 import BannerMain from '../../components/BannerMain';
 import Carousel from '../../components/Carousel';
 import Footer from '../../components/Footer';
+import URL from '../../config';
 
 function Home() {
+  useEffect(() => {
+
+
+    fetch(`${URL}/videos`)
+      .then(async (responseFromServer) => {
+        const response = await responseFromServer.json();
+        // setCategories([
+        //   ...response,
+        // ]);
+      });
+  }, []);
+
   return (
     <div style={{ background: '#141414' }}>
       <Menu />
