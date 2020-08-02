@@ -2,35 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
-
-// custom hook
-function useForm(initialValues) {
-  const [values, setValues] = useState(initialValues);
-
-  function setValue(key, value) {
-    setValues({
-      ...values,
-      [key]: value,
-    });
-  }
-
-  function handleChange(e) {
-    setValue(
-      e.target.getAttribute('name'),
-      e.target.value,
-    );
-  }
-
-  function clearForm() {
-    setValues(initialValues);
-  }
-
-  return {
-    handleChange,
-    clearForm,
-    values,
-  };
-}
+import useForm from '../../../hooks/useForm';
 
 function RegisterCategory() {
   const initialValues = {
