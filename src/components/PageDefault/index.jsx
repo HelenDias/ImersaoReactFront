@@ -1,10 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import styled, { css } from 'styled-components';
 
 import Menu from '../Menu';
 import Footer from '../Footer';
-import PropTypes from 'prop-types';
 
 const Main = styled.main`
   background-color: var(--black);
