@@ -9,37 +9,42 @@ function Home() {
 
   useEffect(() => {
     categoriesRepository.getAllWithVideos()
-      .then((categoriesFound) => {
-        console.log(categoriesFound);
-        return setInitialData(categoriesFound);
-      })
+      .then((categoriesFound) => setInitialData(categoriesFound))
       .catch((e) => {
         console.log(e);
       });
   }, []);
 
   return (
-    <PageDefault paddingAll={0}>
-      {
-        initialData.length === 0
-          ? (<p>Carregando...</p>)
-          : (
-            <>
+    <PageDefault paddingAll="0">
+      {initialData.length === 0 && (<p>Carregando...</p>)}
+
+      {initialData.map((category, index) => {
+        if (index === 0) {
+          return (
+            <div key={category.id}>
               <BannerMain
-                videoTitle={initialData[0].videos[0].titulo}
+                videoTitle={initialData[0].videos[0].name}
                 url={initialData[0].videos[0].url}
                 videoDescription="O que é Front-end? Trabalhando na área os termos HTML, CSS e JavaScript fazem parte da rotina das desenvolvedoras e desenvolvedores. Mas o que eles fazem, afinal? Descubra com a Vanessa!"
               />
 
-              {initialData.map((category, index) => (
-                <Carousel
-                  ignoreFirstVideo={!!index === 0}
-                  category={category}
-                />
-              ))}
-            </>
-          )
-      }
+              <Carousel
+                ignoreFirstVideo
+                category={category}
+                key={category.id}
+              />
+            </div>
+          );
+        }
+
+        return (
+          <Carousel
+            category={category}
+            key={category.id}
+          />
+        );
+      })}
     </PageDefault>
   );
 }
