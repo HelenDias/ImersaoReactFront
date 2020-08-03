@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+
+import useForm from '../../../hooks/useForm';
+
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
-import useForm from '../../../hooks/useForm';
+import Button from '../../../components/Button';
 
 function RegisterCategory() {
   const initialValues = {
@@ -104,9 +107,9 @@ function RegisterCategory() {
           onChange={handleChange}
         />
 
-        <button type="submit">
+        <Button type="submit">
           Cadastrar
-        </button>
+        </Button>
       </form>
 
       {categories.length === 0 && (
