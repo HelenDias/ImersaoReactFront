@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import useForm from '../../../hooks/useForm';
-import URL from '../../../config';
 
 function RegisterCategory() {
   const initialValues = {
